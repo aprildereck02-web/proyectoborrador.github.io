@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concientización sobre Armas y Drogas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+             height: 2000px;
+            font-family: 'Roboto', sans-serif;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            color: #333;
+            overflow-x: hidden;
+
+
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        header h1 {
+            font-family: 'Bebas Neue', cursive; 
+            font-size: 60px;
+            
+        }
+        header p {
+            font-family: 'Roboto', sans-serif;
+        }
+        nav a {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+        .container h2 {
+            font-family: 'Bebas Neue', cursive; 
+            font-size: 36px;
+            color: #333;
+        }
+        .container p, .container ul, .container li {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+        header {
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: headerPulse 2s infinite alternate;
+                position: relative;
+    z-index: 10;
+        }
+        @keyframes headerPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        nav {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+            transform: translateY(-5px);
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #ffeb3b;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section {
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .section.active {
+            display: block;
+        }
+
+        #gif-container {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.4s ease;
+             z-index: 9999;
+             width: 200px;
+             height: 260px;
+        }
+
+        .hidden {
+            display: none !important;
+                        opacity: 0;
+            pointer-events: none;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .quiz {
+            margin-top: 20px;
+            background: linear-gradient(45deg, #ffeaa7, #fab1a0);
+            padding: 15px;
+            border-radius: 10px;
+            animation: quizGlow 2s infinite alternate;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+ #welcome-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        padding: 20px 40px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0.9;
+        z-index: 1000; 
+        pointer-events: none; 
+        animation: fadeIn 0.5s ease-in-out forwards;
+    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+        .fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body>
+              <div id="gif-container">
+        <img src="guf.gif" alt="GIF animado">
+    </div>
+    <header>
+        <h1><br>Concientización sobre el Uso de Armas y Drogas</h1>
+    </header>
+    
+    <nav><br>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('glosario')">Glosario</a>
+        <a href="#" onclick="showSection('minijuegos')">Minijuegos</a>
+        <a href="#" onclick="showSection('riesgo')">Riesgos</a>
+        <a href="#" onclick="showSection('prevencion')">Prevención</a>
+        <a href="#" onclick="showSection('adolescentes')">Adolescentes</a>
+    </nav>
+    
+    <div class="container">
+        <div id="home" class="section active">
+            <h2>Bienvenido a la Página Principal</h2>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/LBJ6hfzympg?si=oc8QXMB4cu1ATxYS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>Este sitio web está dedicado a la concientización sobre los riesgos asociados con el uso de armas y drogas. Explora los subtemas para aprender más y promover una vida saludable y segura. La educación es la clave para prevenir tragedias y fomentar decisiones responsables.</p>
+            <p>Recuerda: La información aquí es educativa y no reemplaza asesoramiento profesional. Si necesitas ayuda, contacta a autoridades o especialistas.</p>
+        </div>
+        <div id="glosario" class="section">
+            <h2>Glosario</h2>
+            <img src="glosario.png" alt="Imagen de libro abierto representando conocimiento">
+            <p>Aquí encontrarás términos clave relacionados con el tema, explicados de manera clara para facilitar la comprensión:</p>
+            <ul>
+                <li><strong>Armas de fuego:</strong> Dispositivos diseñados para disparar proyectiles mediante la expansión de gases. Pueden ser legales o ilegales dependiendo de la jurisdicción.</li>
+                <li><strong>Drogas ilícitas:</strong> Sustancias prohibidas por la ley, como cocaína, heroína o metanfetaminas, que pueden causar adicción y daño físico grave.</li>
+                <li><strong>Adicción:</strong> Dependencia física o psicológica a una sustancia, que dificulta dejar de usarla y puede afectar la salud mental y social.</li>
+                <li><strong>Prevención:</strong> Medidas proactivas para evitar el inicio del uso de armas o drogas, incluyendo educación, apoyo comunitario y políticas públicas.</li>
+                <li><strong>Riesgos:</strong> Posibles consecuencias negativas, como lesiones, enfermedades crónicas, problemas legales o impacto en la familia y sociedad.</li>
+                <li><strong>Estadísticas:</strong> Datos numéricos que ilustran la prevalencia y efectos del uso de armas y drogas en la sociedad, basados en estudios globales.</li>
+            </ul>
+            <p>Entender estos términos es el primer paso para una concienciación efectiva. ¡Sigue explorando!</p>
+        </div>
+        <div id="minijuegos" class="section">
+            <h2>Minijuegos Educativos</h2>
+            <img src="minijuegos.png" alt="Imagen de personas jugando un juego educativo">
+            <div class="quiz">
+                <iframe allow="fullscreen; autoplay; allow-top-navigation-by-user-activation" allowfullscreen width="795" height="690" frameborder="0" src="https://es.educaplay.com/juego/27343362-conciencia_sobre_armas_y_drogas.html"></iframe>
+                <br><br><br><iframe allow="fullscreen; autoplay; allow-top-navigation-by-user-activation" allowfullscreen width="795" height="690" frameborder="0" src="https://es.educaplay.com/juego/27343332-busqueda_concienciacion_sobre_drogas.html"></iframe>
+            </div>
+            <p>Estos minijuegos están diseñados para educar de forma interactiva. ¡Juega y aprende!</p>
+        </div>
+        <div id="riesgo" class="section">
+            <h2>Riesgos del Uso de Armas y Drogas</h2>
+            <img src="riesgo.png" alt="Imagen representando riesgos y advertencias">
+            <p>El uso indebido de armas y drogas puede tener consecuencias graves y a menudo irreversibles. A continuación, detallamos algunos riesgos principales:</p>
+            <ul>
+                <li><strong>Armas:</strong> Accidentes domésticos, violencia interpersonal, lesiones fatales, suicidio o homicidio, y problemas legales como posesión ilegal o uso irresponsable.</li>
+                <li><strong>Drogas:</strong> Adicción crónica, daño cerebral permanente, enfermedades infecciosas (como VIH o hepatitis por agujas), sobredosis letal, deterioro mental y social.</li>
+                <li>Ambos pueden afectar la salud mental (depresión, ansiedad), relaciones familiares, oportunidades laborales y contribuir a problemas sociales como la delincuencia.</li>
+            </ul>
+            <p>Los riesgos no son solo personales; afectan a la comunidad entera. La concienciación puede salvar vidas.</p>
+        </div>
+        <div id="prevencion" class="section">
+            <h2>Prevención</h2>
+            <img src="prevencion.png" alt="Imagen de personas trabajando en prevención">
+            <p>Estrategias efectivas para evitar el uso de armas y drogas incluyen acciones individuales, familiares y comunitarias:</p>
+            <ul>
+                <li>Educación en escuelas y comunidades sobre los riesgos, con programas interactivos y charlas.</li>
+                <li>Apoyo familiar y amigos para fomentar decisiones positivas y proporcionar un entorno seguro.</li>
+                <li>Programas de rehabilitación y terapia para quienes ya usan sustancias, con acceso a profesionales.</li>
+                <li>Almacenamiento seguro de armas (cerraduras, gabinetes) y control de acceso para prevenir accidentes.</li>
+                <li>Buscar ayuda profesional si sientes presión, curiosidad o ya has iniciado el uso. Líneas de ayuda como 911 o centros especializados están disponibles.</li>
+            </ul>
+            <p>La prevención es un esfuerzo colectivo. ¡Involúcrate y ayuda a otros a tomar el camino correcto!</p>
+        </div>
+        <div id="adolescentes" class="section">
+            <h2>Uso de Armas y Drogas en Adolescentes</h2>
+            <img src="adolescentes.png" alt="Imagen de adolescentes en un entorno educativo">
+            <p>El uso de armas y drogas en adolescentes es especialmente problemático porque su cerebro y cuerpo están en pleno desarrollo. Esto puede causar daños irreversibles y afectar su futuro de manera significativa. A continuación, explicamos por qué está mal y las razones clave:</p>
+            <ul>
+                <li><strong>Daño al desarrollo cerebral:</strong> Durante la adolescencia, el cerebro se forma y madura. Las drogas alteran la química cerebral, afectando la memoria, el aprendizaje y la toma de decisiones, lo que puede llevar a problemas académicos y cognitivos permanentes.</li>
+                <li><strong>Riesgo de adicción temprana:</strong> Los adolescentes son más propensos a desarrollar adicciones porque su cerebro es más sensible a las recompensas de las sustancias. Una vez adicto, es difícil dejarlo, y puede durar toda la vida.</li>
+                <li><strong>Problemas de salud física:</strong> Las drogas pueden causar enfermedades cardíacas, daño hepático o infecciones, mientras que las armas aumentan el riesgo de accidentes fatales o violencia, especialmente en contextos de presión de pares o juegos peligrosos.</li>
+                <li><strong>Impacto emocional y social:</strong> Puede llevar a depresión, ansiedad, aislamiento social y conflictos familiares. Además, aumenta la probabilidad de comportamientos de riesgo, como conducir bajo influencia o involucrarse en delitos.</li>
+                <li><strong>Consecuencias legales y educativas:</strong> El uso de drogas o armas ilegales puede resultar en arrestos, expulsiones escolares o pérdida de oportunidades educativas y laborales, limitando el futuro.</li>
+                <li><strong>Presión de pares y vulnerabilidad:</strong> Los adolescentes a menudo experimentan por curiosidad o para encajar en grupos, pero esto puede escalar rápidamente a problemas graves, ya que no tienen la madurez para evaluar riesgos.</li>
+            </ul>
+            <p>En resumen, el uso en esta etapa interrumpe el crecimiento saludable y puede tener efectos devastadores a largo plazo. La prevención y la educación son esenciales para proteger a los jóvenes. Si eres adolescente o conoces a uno, busca ayuda profesional para decisiones seguras.</p>
+        </div>
+    </div>
+
+    
+    <script>
+            
+        function mostrarBienvenida() {
+            const nombre = prompt("Por favor, ingresa tu nombre:");
+            if (nombre) {
+                
+                const mensaje = document.createElement('div');
+                mensaje.id = 'welcome-message';
+                mensaje.textContent = `Bienvenid@, ${nombre}!`;
+                document.body.appendChild(mensaje);
+
+            
+                setTimeout(() => {
+                    mensaje.classList.add('fade-out');
+                    setTimeout(() => {
+                        document.body.removeChild(mensaje);
+                    }, 500);
+                }, 3000);
+            } else {
+                alert("No ingresaste un nombre. Inténtalo de nuevo.");
+                mostrarBienvenida(); 
+            }
+        }
+
+        window.onload = mostrarBienvenida;
+
+  let ultimoScroll = window.scrollY;
+    const gif = document.getElementById("gif-container");
+    const umbral = 100; 
+
+    window.addEventListener("scroll", () => {
+        let scrollActual = window.scrollY;
+
+        if (scrollActual > ultimoScroll) {
+
+            gif.classList.add("hidden");
+        } else if (ultimoScroll - scrollActual > umbral) {
+
+            gif.classList.remove("hidden");
+        }
+
+        ultimoScroll = scrollActual;
+    });
+
+            ultimoScroll = scrollActual;
+        ;
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+        
+    </script>
+</body>
+</html
